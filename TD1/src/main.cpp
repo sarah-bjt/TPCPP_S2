@@ -21,7 +21,7 @@ int main()
     std::cout<<std::endl;
 
 
-// ex1 (opération) & ex2 (affichage) & ex5 (opérations d'affectation)
+// ex1 (opération), ex2 (affichage), ex5 (opérations d'affectation)
 
     // +
     std::cout << f1 <<" + "<< f2 <<"= ";
@@ -67,6 +67,11 @@ int main()
     // >=
     std::cout<< "3/4 >= 2/4 ? ";
     std::cout<<(Fraction{3, 4} > Fraction{2, 4});
+    std::cout<<std::endl;
+
+    // ex6 (convertion)
+    std::cout<<f1 << " = ";
+    std::cout<<static_cast<float>(f1);
     std::cout<<std::endl;
 
     return 0;

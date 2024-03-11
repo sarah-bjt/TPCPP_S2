@@ -8,31 +8,17 @@ struct Fraction {
 
     // ex5 opérations d'affections (+=, -=, *=, /=)
     // +=
-    Fraction& operator+=(Fraction const& f2) {
-        numerator = numerator * f2.denominator + f2.numerator * denominator;
-        denominator = denominator * f2.denominator;
-        return *this;
-    }
+    Fraction& operator+=(Fraction const& f);
     // -=
-    Fraction& operator-=(Fraction const& f2) {
-
-        numerator = numerator * f2.denominator - f2.numerator * denominator;
-        denominator = denominator * f2.denominator;
-        return *this;
-    }
+    Fraction& operator-=(Fraction const& f);
     // *=
-    Fraction& operator*=(Fraction const& f2) {
-        numerator *= f2.numerator;
-        denominator *= f2.denominator;
-        return *this;
-    }
+    Fraction& operator*=(Fraction const& f);
     // /=
-    Fraction& operator/=(Fraction const& f2) {
-        numerator *= f2.denominator;
-        denominator *= f2.numerator;
-        return *this;
-    }
+    Fraction& operator/=(Fraction const& f2);
 
+    // // ex6 convertion
+    operator float() const ;
+    
 };
 
 // ex1

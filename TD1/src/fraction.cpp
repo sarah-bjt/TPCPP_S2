@@ -75,25 +75,58 @@ bool operator>=(Fraction const& f1, Fraction const& f2) {
     return !(f1<f2 && f1!=f2 );
 }
 
-// ex5 opérations d'affectation (réécriture +, -, *, /)
+// ex5 opérations d'affectation 
+// +=
+Fraction& Fraction::operator+=(Fraction const& f){
+        numerator = numerator * f.denominator + f.numerator * denominator;
+        denominator = denominator * f.denominator;
+        return simplify(*this);
+}
+//-=
+Fraction& Fraction::operator-=(Fraction const& f) {
+
+        numerator = numerator * f.denominator - f.numerator * denominator;
+        denominator = denominator * f.denominator;
+        return simplify(*this);
+}
+// *=
+Fraction& Fraction::operator*=(Fraction const& f) {
+        numerator *= f.numerator;
+        denominator *= f.denominator;
+        return simplify(*this);
+}
+// /=
+Fraction& Fraction::operator/=(Fraction const& f) {
+        numerator *= f.denominator;
+        denominator *= f.numerator;
+        return simplify(*this);
+}
+// réecriture (+, -, *, /)
 // +
 Fraction operator+(Fraction  f1, Fraction const& f2) {
     f1 += f2;
-    return simplify(f1);
+    return f1;
 }
 // -
 Fraction operator-(Fraction f1, Fraction const& f2) {
     f1-=f2;
-    return simplify(f1);
+    return f1;
 }
 // *
 Fraction operator*(Fraction f1, Fraction const& f2) {
     f1*=f2;
-    return simplify(f1);
+    return f1;
 }
 // /
 Fraction operator/(Fraction f1, Fraction const& f2) {
     f1/=f2;
-    return simplify(f1);
+    return f1;
+}
+
+// ex6 convestion
+Fraction::operator float() const{
+    float floatingNumerator {static_cast<float>(numerator)};
+    float floatingDenominator {static_cast<float>(denominator)};
+    return floatingNumerator/floatingDenominator;
 }
 
