@@ -139,17 +139,6 @@ int main()
     // ex2
     quick_sort(array_quick);
 
-    
-    if (is_sorted_float(array_quick) ) {
-        std::cout << "Le tableau est trie"<< std::endl;
-    }
-    else {
-    std::cout << "Le tableau n'est pas trie" << std::endl;
-    }
-    // for( unsigned int i {0}; i<array_quick.size(); i++){
-    //     std::cout <<" "<<array_quick[i];
-    // }
-    
 
     // ex4 
     std::vector<int> liste1 {1, 2, 2, 3, 4, 8, 12};
