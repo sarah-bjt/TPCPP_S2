@@ -33,9 +33,39 @@ std::vector<std::pair<std::string, float>> get_robots_fix(size_t size) {
 }
 
 // 1)
-
 std::unordered_map<std::string, std::vector<float>> robots_fixes_map(std::vector<std::pair<std::string, float>> const& robots_fixes){
-
-    
-
+    std::unordered_map<std::string, std::vector<float>> robots_and_fixes {};
+    for ( std::pair<std::string, float> robot_price : robots_fixes){   // prend chaque ligne de robots_fixes
+        robots_and_fixes [robot_price.first].push_back(robot_price.second);  // ajoute une ligne pour chaque nom distinc avec dans la 2e case une liste des prix des réparations 
+    }
+    return robots_and_fixes;
 }    
+
+// 2)
+
+float somme_float (std::vector<float> tab){
+    float sum {0};
+    for ( float num : tab ){
+        sum += num ;
+    }
+    return sum;
+}
+
+int main(){
+
+    // 3)
+
+    // Génère la liste des réparations
+    std::vector<std::pair<std::string, float>> robots_fixes = get_robots_fix(20);
+
+    // Crée la table associative des réparations par robot
+    std::unordered_map<std::string, std::vector<float>> robots_and_fixes = robots_fixes_map(robots_fixes);
+
+    // Affiche la somme des réparations pour chaque robot
+    for (const auto& entry : robots_and_fixes) {
+        float total_cost = somme_float(entry.second);
+        std::cout << "Robot: " << entry.first << ", Total repair cost: " << total_cost << std::endl;
+    }
+
+    return 0;
+}
