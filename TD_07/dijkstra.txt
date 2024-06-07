@@ -1,0 +1,27 @@
+## Dijkstra
+On cherche le chemain le plus court entre A et E
+1) on part de A
+dist : null
+a_visiter : A(0)
+
+2)
+dist : B(1,A) C(A,5) D(2,A)
+a_visiter : B(1) C(5) D(2)
+
+3) B est le plus court or aller à D en passant par B est plus long
+dist : B(1,A) C(A,5) D(2,A)
+a_visiter : C(4) D(6) E(7)
+
+4) C est plus court
+dist : B(1,A) C(A,4) D(2,A) 
+a_visiter : C(5) E(7) 
+
+5)
+dist : B(1,A) C(A,4) D(2,A) F(8,C) E(7,D) 
+a_visiter :E(7)
+
+6)on peut aussi visiter E en passant par C mais ça revient au même
+dist : B(1,A) C(A,4) D(2,A) F(8,C) E(7,D) 
+a_visiter :E(7)
+
+Donc l'ordre est A -> D -> E avec une distance de 7
